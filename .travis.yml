@@ -40,5 +40,5 @@ script:
  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --check
 
 notifications:
- webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
 ...
