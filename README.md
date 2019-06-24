@@ -1,4 +1,4 @@
-[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Kubernetes-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac_ansible_k8s) [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-k8s.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-k8s)
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Kubernetes-blue.svg)](https://galaxy.ansible.com/wluisaraujo/k8s) [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-k8s.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-k8s)
 
 ---
 # IaC: with [Ansible](https://www.ansible) role to install and configure [Kubernetes](https://kubernetes.io/pt/)
