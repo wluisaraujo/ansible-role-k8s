@@ -1,10 +1,6 @@
 ---
 language: python
-
-sudo: true
-
-services:
- - docker
+services: docker
 
  env:
   global:
