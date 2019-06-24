@@ -2,7 +2,7 @@
 language: python
 services: docker
 
- env:
+env:
   global:
     - ROLE_NAME: iac-ansible-k8s
     - ANSIBLE_ACTION_WARNINGS: "False"
