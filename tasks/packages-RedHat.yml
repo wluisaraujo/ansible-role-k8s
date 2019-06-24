@@ -1,0 +1,32 @@
+---
+- package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+#    - '*'
+    - bash-completion
+    - bash-completion-extras
+    - bind-utils
+    - bridge-utils
+    - ccze
+    - chrony
+    - cockpit
+    - curl
+    - device-mapper-persistent-data 
+    - epel-release
+    - git 
+    - htop
+    - kexec-tools 
+    - lsof
+    - lvm2
+    - net-tools 
+    - psacct
+    - pyOpenSSL  
+    - rsync
+    - tuned
+    - tuned-profiles-atomic
+    - vim
+    - wget
+    - yum-utils
+...
