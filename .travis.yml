@@ -3,35 +3,32 @@ language: python
 python: "2.7"
 services: docker
 
+sudo: true
+
 env:
   global:
     - ROLE_NAME: iac-ansible-k8s
-     
-- distribution: centos
-  version: 7
+    - ANSIBLE_ACTION_WARNINGS: False
+    - ANSIBLE_COMMAND_WARNINGS: False
+    - ANSIBLE_DEPRECATION_WARNINGS: False
+    - ANSIBLE_SYSTEM_WARNINGS: False
+    - ANSIBLE_HOST_KEY_CHECKING: False
 
-#addons:
-# yum:
-# packages:
-# - python2-pip.noarch
-# - python3*-pip.noarch
+  - distribution: centos
+    version: 7
+
+addons:
+ apt:
+ packages:
+ - python-pip
 
 install:
-# Install ansible
  - pip install ansible
-
-# Check ansible version
-# - ansible --version
-
-# Create ansible.cfg with correct roles_path
-# - printf '[defaults]\nroles_path=../' >ansible.cfg
-
-
-# Install ansible role
+ - ansible --version
+ - printf '[defaults]\nroles_path=../' >ansible.cfg
  - ansible-galaxy install wluisaraujo.iac_ansible_k8s
-#
-#script:
- # Basic role syntax check
+script:
+  - mv wluisaraujo.iac_ansible_k8s  iac-ansible-k8s
 # - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 # - ansible-playbook -i tests/inventory tests/test.yml --connection=local --check
 
