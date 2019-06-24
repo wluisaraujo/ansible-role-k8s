@@ -1,0 +1,28 @@
+---
+- yum_repository:
+    name: kubernetes
+    description: Kubernetes YUM Repo
+    file: kubernetes
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgcheck: 1
+    enabled: true
+
+- yum: 
+    name: "{{ item }}" 
+    state: present 
+    update_cache: yes
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+  notify:
+    - "Start kubelet"
+    
+#- name: Fix kubelet CGROUP_ARGS
+#  replace:
+#    path: /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+#    regexp: .*KUBELET_CGROUP_ARGS=.*
+#    replace: Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs --runtime-cgroups=/systemd/system.slice --kubelet-cgroups=/systemd/system.slice"
+#  become: true
+...
