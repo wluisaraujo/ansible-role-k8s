@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: iac-ansible-k8s
   author: w.luis.araujo
   description: "IaC: with Ansible for Install Kubernetes"
   company: LUSAR | wluisaraujo.github.io
