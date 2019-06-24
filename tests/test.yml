@@ -2,5 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - wluisaraujo.iac_ansible_k8s 
+    - iac-ansible-k8s 
 ...
