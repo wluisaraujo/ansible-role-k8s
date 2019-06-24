@@ -2,6 +2,10 @@
 language: python
 python: "2.7"
 
+env:
+  global:
+    - ROLE_NAME: iac-ansible-k8s
+
 # Use the new container infrastructure
 sudo: false
 
