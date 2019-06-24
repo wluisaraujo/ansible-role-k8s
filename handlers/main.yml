@@ -1,2 +1,152 @@
 ---
-# handlers file for iac-ansible-k8s
+## SystemD
+- name: "Start kubelet"
+  systemd:
+    state: started
+    name: kubelet.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Stop kubelet"
+  systemd:
+    state: stopped
+    name: kubelet.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+    
+- name: "Restart kubelet"
+  systemd:
+    state: restarted
+    name: kubelet.service
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Reload kubelet"
+  systemd:
+    state: reloaded
+    name: kubelet.service
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"     
+
+## SystemV
+- name: "Start kubelet"
+  service:
+    state: started
+    name: kubelet
+    enabled: yes
+  when: ansible_service_mgr == "service"
+
+- name: "Stop kubelet"
+  service:
+    state: stopped
+    name: kubelet
+    enabled: yes
+  when: ansible_service_mgr == "service"
+    
+- name: "Restart kubelet"
+  service:
+    state: restarted
+    name: kubelet
+  when: ansible_service_mgr == "service"
+
+- name: "Reload kubelet"
+  service: 
+    state: reloaded
+    name: kubelet
+  when: ansible_service_mgr == "service"
+
+## SystemD
+- name: "Start docker"
+  systemd:
+    state: started
+    name: docker.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Stop docker"
+  systemd:
+    state: stopped
+    name: docker.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+    
+- name: "Restart docker"
+  systemd:
+    state: restarted
+    name: docker.service
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Reload docker"
+  systemd:
+    state: reloaded
+    name: docker.service
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"     
+
+## SystemV
+- name: "Start docker"
+  service:
+    state: started
+    name: docker
+    enabled: yes
+  when: ansible_service_mgr == "service"
+
+- name: "Stop docker"
+  service:
+    state: stopped
+    name: docker
+    enabled: yes
+  when: ansible_service_mgr == "service"
+    
+- name: "Restart docker"
+  service:
+    state: restarted
+    name: docker
+  when: ansible_service_mgr == "service"
+
+- name: "Reload docker"
+  service: 
+    state: reloaded
+    name: docker
+  when: ansible_service_mgr == "service"
+
+##
+- name: "Start tuned"
+  systemd:
+    state: started
+    name: tuned.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+    
+- name: "Restart tuned"
+  systemd:
+    state: restarted
+    name: tuned.service
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Start chronyd"
+  systemd:
+    state: started
+    name: chronyd.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"  
+...
