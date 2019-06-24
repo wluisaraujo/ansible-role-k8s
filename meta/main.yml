@@ -14,5 +14,5 @@ galaxy_info:
   galaxy_tags: 
     - k8s
     - kubernetes
-# dependencies: []
+  dependencies: []
   
