@@ -42,4 +42,5 @@ Example Playbook
 Reference
 ----------------
 [LinuxTips: Descomplicando o Kubernetes](https://www.linuxtips.io/blog/descomplicando-o-kubernetes-02)
+
 [LinuxTips: Instalando e configurando um cluster Kubernetes](https://www.youtube.com/playlist?list=PLf-O3X2-mxDmXQU-mJVgeaSL7Rtejvv0S)
