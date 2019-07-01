@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   
-  role_name: iac-ansible-k8s
+  role_name: k8s
   
   author: w.luis.araujo
   
@@ -27,5 +27,6 @@ galaxy_info:
     - orchestration
     - containers
   
-  dependencies: []
+dependencies: 
+  - role: wluisaraujo.docker
 ...

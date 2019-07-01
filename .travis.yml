@@ -4,7 +4,7 @@ python: "2.7"
 
 env:
   global:
-    - ROLE_NAME: iac-ansible-k8s
+    - ROLE_NAME: k8s
 
 # Use the new container infrastructure
 sudo: false
@@ -24,9 +24,11 @@ install:
 
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' >ansible.cfg
-
+ 
+ # Install ansible role
+  - ansible-galaxy install wluisaraujo.iac-ansible-gitlab
 script:
-  - git clone https://github.com/wluisaraujo/iac-ansible-k8s.git
+#  - git clone https://github.com/wluisaraujo/iac-ansible-k8s.git
 
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
