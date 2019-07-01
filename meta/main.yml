@@ -5,7 +5,7 @@ galaxy_info:
   
   author: w.luis.araujo
   
-  description: "IaC: with Ansible for Install Kubernetes"
+  description: "Infrastructure as Code (IaC) with Ansible role for Install Kubernetes"
   company: LUSAR | wluisaraujo.github.io
   
   license: "licence (GPLv3)"
