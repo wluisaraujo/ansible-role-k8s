@@ -51,5 +51,7 @@ Reference
 
 [Kubernetes/docs](https://kubernetes.io/docs/home)
 
+[Ansible/docs](https://docs.ansible.com/ansible/latest/scenario_guides/guide_kubernetes.html?highlight=kubernetes)
+
 ----------------
 [![Licence](https://img.shields.io/badge/License-GPL%20v3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
