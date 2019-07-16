@@ -1,4 +1,4 @@
-Conteudo do Curso
+Conteúdo do Curso
 --------------
 
  * [aula01](aula01/README.md)
