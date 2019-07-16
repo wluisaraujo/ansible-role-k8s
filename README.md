@@ -6,12 +6,13 @@
 Description
 ------------
 
- *
+ * Install cluster K8S
 
 Requirements
 ------------
 
- *
+ * Kubernetes v1.15
+ * Docker CE v18.09
 
 Installation
 ------------
@@ -47,6 +48,8 @@ Reference
 [LinuxTips: Descomplicando o Kubernetes](https://www.linuxtips.io/blog/descomplicando-o-kubernetes-02)
 
 [LinuxTips: Instalando e configurando um cluster Kubernetes](https://www.youtube.com/playlist?list=PLf-O3X2-mxDmXQU-mJVgeaSL7Rtejvv0S)
+
+[Kubernetes/docs](https://kubernetes.io/docs/home)
 
 ----------------
 [![Licence](https://img.shields.io/badge/License-GPL%20v3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
