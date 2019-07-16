@@ -25,13 +25,15 @@ Conteúdo do Curso
  
 ### who knows ???
 
-  - [x] Cluster Kubernetes multimaster
-  - [ ] Ambiente de DEV e PROD
- - [ ] NAMESPACE de DEV e PROD
- - [ ] Auth pra DEV e PROD
- - [ ] TAG/ID pra DEV e PROD
- - [ ] RBAC pra DEV e PROD
- - [ ] Storage (nfs/iscsi)
- - [ ] Dashboard
- - [ ] Backup do Cluster
- - [ ] Auto/Update
+- [x] Cluster Kubernetes multimaster
+- [ ] Ambiente de DEV e PROD
+- [ ] NAMESPACE de DEV e PROD
+- [ ] Auth pra DEV e PROD
+- [ ] TAG/ID pra DEV e PROD
+- [ ] RBAC pra DEV e PROD
+- [ ] IP Statico deployment
+- [ ] DNS para deployment
+- [ ] Storage (nfs/iscsi)
+- [ ] Dashboard
+- [ ] Backup do Cluster
+- [ ] Auto/Update
