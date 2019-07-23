@@ -23,22 +23,6 @@
     - "172.16.0.80     sv-k8s-cfx02.exemplo.com.br sv-k8s-cfx02"
     - "172.16.0.81     sv-k8s-cfx03.exemplo.com.br sv-k8s-cfx03"
 
-- replace:
-    dest: /etc/ssh/sshd_config
-    regexp: "^{{ item.origem }}"
-    replace: "{{ item.destino }}"
-  with_items:
-    - { origem: '#Port', destino: 'Port 22' }
-    - { origem: '#PermitRootLogin', destino: 'PermitRootLogin yes' }
-    - { origem: '#GSSAPIAuthentication', destino: 'GSSAPIAuthentication no' }
-    - { origem: '#TCPKeepAlive', destino: 'TCPKeepAlive yes' }
-    - { origem: '#UseDNS', destino: 'UseDNS no' }
-    - { origem: 'Port', destino: 'Port 22' }
-    - { origem: 'PermitRootLogin', destino: 'PermitRootLogin yes' }
-    - { origem: 'GSSAPIAuthentication', destino: 'GSSAPIAuthentication no' }
-    - { origem: 'TCPKeepAlive', destino: 'TCPKeepAlive yes' }
-    - { origem: 'UseDNS', destino: 'Port 22' }#
-
 - shell: "{{ item }}" 
   loop:
     - "chronyc -a sources > /dev/null 2>&1"
