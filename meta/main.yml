@@ -33,6 +33,7 @@ galaxy_info:
     - kubernetes
     - orchestration
     - containers
+
   #dependencies: []  
   dependencies: 
     - role: docker

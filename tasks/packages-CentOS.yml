@@ -6,7 +6,7 @@
   loop:
     - epel-release
     
-- shell: yum-config-manager --enable "{{ item }}" > /dev/null 2>&1 
+- shell: yum-config-manager --enable "{{ item }}" > /dev/null 2>&1
   loop:
     - "base"
     - "centos-opstools-testing"

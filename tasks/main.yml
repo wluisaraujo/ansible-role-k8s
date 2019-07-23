@@ -10,8 +10,6 @@
 
 - include_tasks: prerequisites-{{ ansible_distribution }}.yml
 
-#- include_tasks: setting-docker-{{ ansible_distribution }}.yml
-
 - include_tasks: setting-k8s-{{ ansible_distribution }}.yml
 
 ## setting helm:  https://get.helm.sh/helm-v2.14.2-linux-amd64.tar.gz
