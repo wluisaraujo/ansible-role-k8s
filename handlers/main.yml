@@ -148,5 +148,15 @@
     enabled: yes
     force: yes
   ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: "Stop firewalld"
+  systemd:
+    state: stopped
+    name: firewalld.service
+    enabled: yes
+    force: yes
+    masked: yes
+  ignore_errors: yes
   when: ansible_service_mgr == "systemd"  
 ...

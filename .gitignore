@@ -33,3 +33,6 @@
 .zsh/local
 .zsh/pre-local
 id_rsa
+draft/inventory.yml
+deploy/
+deploy/*

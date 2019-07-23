@@ -1,0 +1,34 @@
+---
+- package:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - docker
+    - docker-client
+    - docker-client-latest
+    - docker-common
+    - docker-latest
+    - docker-latest-logrotate
+    - docker-logrotate
+    - docker-selinux
+    - docker-engine-selinux
+    - docker-engine
+
+- get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    force: yes
+    validate_certs: no
+
+- shell: yum-config-manager --enable docker-ce-nightly 
+
+- package: 
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io  
+  notify:
+    - Start docker  
+...

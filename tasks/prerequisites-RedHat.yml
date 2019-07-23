@@ -17,72 +17,72 @@
   ignore_errors: yes
   when: ansible_service_mgr == "systemd"
  
-- shell: tuned-adm profile atomic-guest
-  notify:
-    - Start tuned
+#- shell: tuned-adm profile atomic-guest
+#  notify:
+#    - Start tuned
+#
+#- shell: timedatectl set-ntp true
+#  notify:
+#    - Start chronyd
+#
+#- shell: chronyc -a sources
 
-- shell: timedatectl set-ntp true
-  notify:
-    - Start chronyd
+#- sysctl:
+#    name: '{{ item.name }}'
+#    state: present
+#    value: '{{ item.value }}'
+#    sysctl_file: /etc/sysctl.conf
+#    sysctl_set: yes
+#    reload: yes
+#    ignoreerrors: yes
+#  with_items:
+#    - { name: 'fs.file-max',value: '65535' }
+#    - { name: 'fs.suid_dumpable', value: '0' }
+#    - { name: 'kernel.nmi_watchdog', value: '0' }
+#    - { name: 'kernel.panic', value: '10' }
+#    - { name: 'kernel.pid_max', value: '65536' }  
+#    - { name: 'kernel.randomize_va_space', value: '2' }
+#    - { name: 'net.bridge.bridge-nf-call-ip6tables', value: '1' }
+#    - { name: 'net.bridge.bridge-nf-call-iptables', value: '1' }
+#    - { name: 'net.ipv4.conf.all.accept_redirects', value: '0' }
+#    - { name: 'net.ipv4.conf.all.accept_source_route', value: '0'  }
+#    - { name: 'net.ipv4.conf.all.log_martians', value: '1' }
+#    - { name: 'net.ipv4.conf.all.rp_filter', value: '1' }
+#    - { name: 'net.ipv4.conf.all.secure_redirects', value: '0' }
+#    - { name: 'net.ipv4.conf.all.send_redirects', value: '0' }
+#    - { name: 'net.ipv4.conf.default.accept_redirects', value: '0' }
+#    - { name: 'net.ipv4.conf.default.secure_redirects', value: '0' }
+#    - { name: 'net.ipv4.conf.default.send_redirects', value: '0' }
+#    - { name: 'net.ipv4.icmp_echo_ignore_broadcasts', value: '1' }
+#    - { name: 'net.ipv4.icmp_ignore_bogus_error_messages', value: '1' }
+#    - { name: 'net.ipv4.icmp_ignore_bogus_error_responses', value: '1' }
+#    - { name: 'net.ipv4.tcp_syncookies', value: '1' }
+#    - { name: 'net.ipv6.conf.all.accept_ra', value: '0' }
+#    - { name: 'net.ipv6.conf.all.disable_ipv6', value: '1' }
+#    - { name: 'vm.drop_caches', value: '3' }
+#    - { name: 'vm.swappiness', value: '0' }
+#    - { name: 'net.ipv6.conf.default.disable_ipv6', value: '1' }
 
-- shell: chronyc -a sources
+#- lineinfile:
+#    path: /etc/modules-load.d/k8s.conf
+#    line: "{{ item }}"
+#    create: true
+#  loop:
+#    - br_netfilter
+#    - ip_vs
+#    - ip_vs_rr
+#    - ip_vs_sh
+#    - ip_vs_wrr
+#    - nf_conntrack_ipv4
 
-- sysctl:
-    name: '{{ item.name }}'
-    state: present
-    value: '{{ item.value }}'
-    sysctl_file: /etc/sysctl.conf
-    sysctl_set: yes
-    reload: yes
-    ignoreerrors: yes
-  with_items:
-    - { name: 'fs.file-max',value: '65535' }
-    - { name: 'fs.suid_dumpable', value: '0' }
-    - { name: 'kernel.nmi_watchdog', value: '0' }
-    - { name: 'kernel.panic', value: '10' }
-    - { name: 'kernel.pid_max', value: '65536' }  
-    - { name: 'kernel.randomize_va_space', value: '2' }
-    - { name: 'net.bridge.bridge-nf-call-ip6tables', value: '1' }
-    - { name: 'net.bridge.bridge-nf-call-iptables', value: '1' }
-    - { name: 'net.ipv4.conf.all.accept_redirects', value: '0' }
-    - { name: 'net.ipv4.conf.all.accept_source_route', value: '0'  }
-    - { name: 'net.ipv4.conf.all.log_martians', value: '1' }
-    - { name: 'net.ipv4.conf.all.rp_filter', value: '1' }
-    - { name: 'net.ipv4.conf.all.secure_redirects', value: '0' }
-    - { name: 'net.ipv4.conf.all.send_redirects', value: '0' }
-    - { name: 'net.ipv4.conf.default.accept_redirects', value: '0' }
-    - { name: 'net.ipv4.conf.default.secure_redirects', value: '0' }
-    - { name: 'net.ipv4.conf.default.send_redirects', value: '0' }
-    - { name: 'net.ipv4.icmp_echo_ignore_broadcasts', value: '1' }
-    - { name: 'net.ipv4.icmp_ignore_bogus_error_messages', value: '1' }
-    - { name: 'net.ipv4.icmp_ignore_bogus_error_responses', value: '1' }
-    - { name: 'net.ipv4.tcp_syncookies', value: '1' }
-    - { name: 'net.ipv6.conf.all.accept_ra', value: '0' }
-    - { name: 'net.ipv6.conf.all.disable_ipv6', value: '1' }
-    - { name: 'vm.drop_caches', value: '3' }
-    - { name: 'vm.swappiness', value: '0' }
-    - { name: 'net.ipv6.conf.default.disable_ipv6', value: '1' }
-
-- lineinfile:
-    path: /etc/modules-load.d/k8s.conf
-    line: "{{ item }}"
-    create: true
-  loop:
-    - br_netfilter
-    - ip_vs
-    - ip_vs_rr
-    - ip_vs_sh
-    - ip_vs_wrr
-    - nf_conntrack_ipv4
-
-- modprobe:
-    name: "{{ item }}"
-    state: present    
-  loop:
-    - br_netfilter
-    - ip_vs
-    - ip_vs_rr
-    - ip_vs_sh
-    - ip_vs_wrr
-    - nf_conntrack_ipv4  
+#- modprobe:
+#    name: "{{ item }}"
+#    state: present    
+#  loop:
+#    - br_netfilter
+#    - ip_vs
+#    - ip_vs_rr
+#    - ip_vs_sh
+#    - ip_vs_wrr
+#    - nf_conntrack_ipv4  
 ...

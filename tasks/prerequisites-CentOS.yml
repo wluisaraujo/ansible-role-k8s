@@ -1,0 +1,48 @@
+---
+- command: setenforce 0
+
+- selinux:
+    state: permissive
+
+- replace:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    replace: 'SELINUX=permissive'
+  
+- replace:
+    dest: /etc/logrotate.conf
+    regexp: '^#compress'
+    replace: 'compress'
+
+- lineinfile:
+    path: /etc/hosts
+    state:  present
+    line: "{{ item }}"
+   loop:
+     - "172.17.10.83    ck8s.corpflex.com.br ck8s"
+     - "172.17.2.85     sv-k8s-cfx02.corpflex.com.br sv-k8s-cfx02"
+     - "172.17.2.89     sv-k8s-cfx03.corpflex.com.br sv-k8s-cfx03"
+     - "172.17.2.80     proxy.corpflex.com.br"
+
+- replace:
+    dest: /etc/ssh/sshd_config
+    regexp: "^{{ item.origem }}"
+    replace: "{{ item.destino }}"
+  with_items:
+    - { origem: '#Port',                   destino: 'Port 22' }
+#      - { origem: '#PermitRootLogin',       destino: 'PermitRootLogin yes' }
+#      - { origem: '#GSSAPIAuthentication',   destino: 'GSSAPIAuthentication no' }
+#      - { origem: '#TCPKeepAlive',          destino: 'TCPKeepAlive yes' }
+#      - { origem: '#UseDNS',                 destino: 'UseDNS no' }
+#      - { origem: 'Port',                       destino: 'Port 22' }
+#      - { origem: 'PermitRootLogin',            destino: 'PermitRootLogin yes' }
+#      - { origem: 'GSSAPIAuthentication',       destino: 'GSSAPIAuthentication no' }
+#      - { origem: 'TCPKeepAlive',               destino: 'TCPKeepAlive yes' }
+#      - { origem: 'UseDNS',                     destino: 'Port 22' }#
+
+- shell: "{{ item }}" 
+  loop:
+    - chronyc -a sources > /dev/null 2>&1
+    - timedatectl set-ntp true
+    - tuned-adm profile atomic-guest
+...
