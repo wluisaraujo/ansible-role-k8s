@@ -52,4 +52,6 @@
 #  become: true
   #notify:
   #- "Start kubelet"
+
+# kubeadm config images pull  
 ...

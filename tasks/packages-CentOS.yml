@@ -30,7 +30,7 @@
     - chrony
     - cockpit
     - curl
-    - device-mapper-persistent-datas
+    - device-mapper-persistent-data
     - htop
     - kexec-tools 
     - lsof

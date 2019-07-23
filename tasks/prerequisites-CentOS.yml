@@ -19,12 +19,9 @@
     state:  present
     line: "{{ item }}"
   loop:
-    - "172.17.10.83    ck8s.corpflex.com.br ck8s"
-    - "172.17.10.83    hawx.corpflex.com.br"
-    - "172.17.2.80     proxy.corpflex.com.br"
-    - "172.17.2.81     postgresql.corpflex.com.br"
-    - "172.17.2.85     sv-k8s-cfx02.corpflex.com.br sv-k8s-cfx02"
-    - "172.17.2.89     sv-k8s-cfx03.corpflex.com.br sv-k8s-cfx03"
+    - "172.16.0.8    k8s.exemplo.com.br ck8s"
+    - "172.16.0.80     sv-k8s-cfx02.exemplo.com.br sv-k8s-cfx02"
+    - "172.16.0.81     sv-k8s-cfx03.exemplo.com.br sv-k8s-cfx03"
 
 - replace:
     dest: /etc/ssh/sshd_config
@@ -44,7 +41,8 @@
 
 - shell: "{{ item }}" 
   loop:
-    - chronyc -a sources > /dev/null 2>&1
-    - timedatectl set-ntp true
-    - tuned-adm profile atomic-guest
+    - "chronyc -a sources > /dev/null 2>&1"
+    - "timedatectl set-timezone America/Sao_Paulo"
+    - "timedatectl set-ntp true"
+    - "tuned-adm profile atomic-guest"
 ...
