@@ -17,8 +17,12 @@ Requirements
 Installation
 ------------
 
+Installation
+------------
+
 ```console
 vagrant@localhost:~$ ansible-galaxy install wluisaraujo.k8s
+vagrant@localhost:~$ ansible-galaxy install -r wluisaraujo.k8s/requirements.txt
 ```
 
 Role Variables
